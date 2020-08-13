@@ -152,6 +152,9 @@ class KalmanFilter(object):
         return mean, covariance + innovation_cov
     
     def multi_predict(self, mean, covariance):
+        #向量版predict，指的是对于多个要predict的tracklet
+        #放在矩阵里一次性计算完，而不是for循环一个个去算
+        #MOTDT里就是放在for循环里一个个算
         """Run Kalman filter prediction step (Vectorized version).
 
         Parameters
